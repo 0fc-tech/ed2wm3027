@@ -25,9 +25,12 @@ class ListArticleFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.buttonToDetail)
         val textView = view.findViewById<TextView>(R.id.textViewAffichageArticles)
-        textView.text = ArticleRepository.getArticle(1L).toString()
+        val article = ArticleRepository.getArticle(1L)
+        textView.text = article.toString()
+
         button.setOnClickListener {
-            findNavController().navigate(R.id.actionListToDetail)
+            val direction = ListArticleFragmentDirections.actionListToDetail(article)
+            findNavController().navigate(direction)
         }
     }
 }

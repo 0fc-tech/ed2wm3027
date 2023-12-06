@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.DetailArticleFrament">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+        <variable
+            name="article"
+            type="com.eniecole.enishop.bo.Article" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.fragment.DetailArticleFrament">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imageViewImageProduit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/textViewTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{article.titre}"
+            app:layout_constraintStart_toEndOf="@+id/imageViewImageProduit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{article.description}"
+            app:layout_constraintStart_toEndOf="@+id/imageViewImageProduit"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+
+        <TextView
+            android:id="@+id/textViewPrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{article.prix + `€`}"
+            app:layout_constraintStart_toEndOf="@+id/imageViewImageProduit"
+            app:layout_constraintTop_toBottomOf="@+id/textViewDesc" />
+
+        <TextView
+            android:id="@+id/textViewDateSortie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{article.afficheDate()}"
+            app:layout_constraintStart_toEndOf="@+id/imageViewImageProduit"
+            app:layout_constraintTop_toBottomOf="@+id/textViewPrix" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
+
+
+
+
+
+
+
