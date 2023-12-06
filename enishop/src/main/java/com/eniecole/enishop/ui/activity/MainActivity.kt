@@ -1,13 +1,13 @@
-package com.eniecole.enishop
+package com.eniecole.enishop.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.eniecole.enishop.dao.ArticleRepository
 import com.eniecole.enishop.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
-//logt
+
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         //logd logi
         Log.d(TAG, "onCreate: ${ArticleRepository.getArticle(1L)}")
         binding.button.setOnClickListener {
-            Snackbar.make(it,"Vous venez de créer ${binding.article?.titre} vendu pour un" +
-                    "montant de ${binding.article?.prix}€",Snackbar.LENGTH_LONG).show()
+            Snackbar.make(
+                it, "Vous venez de créer ${binding.article?.titre} vendu pour un" +
+                        "montant de ${binding.article?.prix}€", Snackbar.LENGTH_LONG
+            ).show()
         }
     }
 }
