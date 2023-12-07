@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/mod4viewdatabinding" />
             <option value="$PROJECT_DIR$/mod5menu" />
             <option value="$PROJECT_DIR$/mod5navcomponent" />
+            <option value="$PROJECT_DIR$/mod6intent" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
