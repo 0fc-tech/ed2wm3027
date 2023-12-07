@@ -12,4 +12,6 @@ object ArticleRepository {
     fun addArticle(article: Article) : Long{
         return articleDaoMem.addNewOne(article)
     }
+
+    fun getAllArticles() = articleDaoMem.selectAll()
 }

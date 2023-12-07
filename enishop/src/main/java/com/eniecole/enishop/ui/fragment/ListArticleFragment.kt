@@ -13,6 +13,8 @@ import com.eniecole.enishop.dao.ArticleRepository
 
 
 class ListArticleFragment : Fragment() {
+    lateinit var textViewAffichageArticles: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,13 +26,18 @@ class ListArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.buttonToDetail)
-        val textView = view.findViewById<TextView>(R.id.textViewAffichageArticles)
+        textViewAffichageArticles = view.findViewById<TextView>(R.id.textViewAffichageArticles)
         val article = ArticleRepository.getArticle(1L)
-        textView.text = article.toString()
+        textViewAffichageArticles.text = article.toString()
 
         button.setOnClickListener {
             val direction = ListArticleFragmentDirections.actionListToDetail(article)
             findNavController().navigate(direction)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        textViewAffichageArticles.text = ArticleRepository.getAllArticles().toString()
     }
 }

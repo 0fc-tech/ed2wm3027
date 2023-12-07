@@ -21,4 +21,6 @@ class ArticleDaoMemoryImpl : ArticleDAO {
         return numberOfArticles+1L
     }
 
+    override fun selectAll(): List<Article> = articlesInMemory
+
 }

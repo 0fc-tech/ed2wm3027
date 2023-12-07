@@ -1,5 +1,7 @@
 package com.eniecole.enishop.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -26,5 +28,10 @@ class DetailArticleFrament : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.article = args.article
+        binding.textViewTitre.setOnClickListener {
+            val intentToGoogle = Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://google.com/search?q=eni-shop%20${args.article.titre}"))
+            startActivity(intentToGoogle)
+        }
     }
 }

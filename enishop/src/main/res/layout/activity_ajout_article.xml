@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.MainActivity">
+        tools:context=".ui.activity.AjoutArticleActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
@@ -67,10 +67,11 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPrix"
-                android:text="@{article.prix + `€`}"
-
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+
+                android:layout_height="wrap_content"
+                android:inputType="number|numberDecimal"
+                android:text="@{article.prix + `€`}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/mod5menu" />
             <option value="$PROJECT_DIR$/mod5navcomponent" />
             <option value="$PROJECT_DIR$/mod6intent" />
+            <option value="$PROJECT_DIR$/mod7lifecycle" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

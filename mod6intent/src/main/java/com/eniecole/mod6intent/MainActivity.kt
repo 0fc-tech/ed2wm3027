@@ -5,11 +5,23 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
 
 const val EXTRA_STRING_ALIMENT = "aliment"
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop: ")
+    }
     //Je passe un contrat avec Android pour une demande de permission. Je définis ce que je fais après sa réponse
     val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()){ isGranted ->
         //La permission a été accordée
@@ -32,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         //Intent implicite vers App Téléphone pour "voir" un numéro de tel
         val buttonViewPhone = findViewById<Button>(R.id.buttonViewPhone)
         buttonViewPhone.setOnClickListener {
-            Intent(Intent.ACTION_CALL, Uri.parse("tel:0876543234")).apply {
+            Intent(Intent.ACTION_DIAL, Uri.parse("tel:0876543234")).apply {
                 startActivity(this)
             }
         }
