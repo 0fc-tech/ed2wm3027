@@ -25,7 +25,20 @@ class CounterActivity : AppCompatActivity() {
         //fabCounterAdd = findViewById(R.id.fabCounterAdd)
         binding.vm = counterVM
         //binding.textViewCounter.text = "${counterVM.counter}"
-        binding.fabCounterAdd.setOnClickListener { binding.textViewCounter.text = "${counterVM.inc()}"}
+        //ICI on demande au binding d'écouter tous les LiveData qu'il affiche
+        //Ainsi, dès qu'une donnée observable change, le binding mettra à jour l'affichage
+        binding.lifecycleOwner = this
+        binding.fabCounterAdd.setOnClickListener {
+            counterVM.inc()
+            //binding.textViewCounter.text = "${counterVM.inc()}"`
+        }
+        binding.fabDec.setOnClickListener { counterVM.dec() }
+        counterVM.counter.observe(this){nouveauCompteur->
+            Log.d(TAG, "onCreate: $nouveauCompteur")
+        }
+        //listArticleVM.getArticleList().observe(lifecycleOwner){ listArticle
+        //    //Affichage la donnée dans une ListView (RecyclerView)
+        //}
     }
 /*
     override fun onSaveInstanceState(outState: Bundle) {
